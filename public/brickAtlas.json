@@ -1,0 +1,239 @@
+{
+  "frames": {
+    "brick-red": {
+      "frame": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-pink": {
+      "frame": { "x": 42, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-purple": {
+      "frame": { "x": 84, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-wood": {
+      "frame": { "x": 126, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-dpurple": {
+      "frame": { "x": 168, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-dblue": {
+      "frame": { "x": 210, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-copper": {
+      "frame": { "x": 252, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-blue": {
+      "frame": { "x": 294, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-iceblue": {
+      "frame": { "x": 336, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-algae": {
+      "frame": { "x": 378, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-iron": {
+      "frame": { "x": 420, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-dgreen": {
+      "frame": { "x": 462, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-lime": {
+      "frame": { "x": 504, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-yellow": {
+      "frame": { "x": 546, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-gold": {
+      "frame": { "x": 588, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-brickred": {
+      "frame": { "x": 630, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-brown": {
+      "frame": { "x": 672, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-stone": {
+      "frame": { "x": 714, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-diamond": {
+      "frame": { "x": 756, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-discordblue": {
+      "frame": { "x": 798, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-sunyellow": {
+      "frame": { "x": 840, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-orange": {
+      "frame": { "x": 882, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-dorange": {
+      "frame": { "x": 924, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    },
+    "brick-glass": {
+      "frame": { "x": 966, "y": 0, "w": 42, "h": 30 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 42, "h": 30 },
+      "sourceSize": { "w": 42, "h": 30 },
+      "duration": 100
+    }
+  },
+  "meta": {
+    "app": "https://www.aseprite.org/",
+    "version": "1.2.35-x64",
+    "image": "brick-.png",
+    "format": "RGBA8888",
+    "size": { "w": 1008, "h": 30 },
+    "scale": "1",
+    "frameTags": [
+      { "name": "red", "from": 0, "to": 0, "direction": "forward" },
+      { "name": "pink", "from": 1, "to": 1, "direction": "forward" },
+      { "name": "purple", "from": 2, "to": 2, "direction": "forward" },
+      { "name": "wood", "from": 3, "to": 3, "direction": "forward" },
+      { "name": "dpurple", "from": 4, "to": 4, "direction": "forward" },
+      { "name": "dblue", "from": 5, "to": 5, "direction": "forward" },
+      { "name": "copper", "from": 6, "to": 6, "direction": "forward" },
+      { "name": "blue", "from": 7, "to": 7, "direction": "forward" },
+      { "name": "iceblue", "from": 8, "to": 8, "direction": "forward" },
+      { "name": "algae", "from": 9, "to": 9, "direction": "forward" },
+      { "name": "iron", "from": 10, "to": 10, "direction": "forward" },
+      { "name": "dgreen", "from": 11, "to": 11, "direction": "forward" },
+      { "name": "lime", "from": 12, "to": 12, "direction": "forward" },
+      { "name": "yellow", "from": 13, "to": 13, "direction": "forward" },
+      { "name": "gold", "from": 14, "to": 14, "direction": "forward" },
+      { "name": "brickred", "from": 15, "to": 15, "direction": "forward" },
+      { "name": "brown", "from": 16, "to": 16, "direction": "forward" },
+      { "name": "stone", "from": 17, "to": 17, "direction": "forward" },
+      { "name": "diamond", "from": 18, "to": 18, "direction": "forward" },
+      { "name": "discordblue", "from": 19, "to": 19, "direction": "forward" },
+      { "name": "sunyellow", "from": 20, "to": 20, "direction": "forward" },
+      { "name": "orange", "from": 21, "to": 21, "direction": "forward" },
+      { "name": "dorange", "from": 22, "to": 22, "direction": "forward" },
+      { "name": "glass", "from": 23, "to": 23, "direction": "forward" }
+    ],
+    "layers": [
+      {
+        "name": "Layer",
+        "opacity": 255,
+        "blendMode": "normal",
+        "cels": [{ "frame": 0, "data": "red" }]
+      }
+    ],
+    "slices": []
+  }
+}

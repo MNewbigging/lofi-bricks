@@ -1,0 +1,146 @@
+import Phaser from "phaser";
+
+import { Beater, ShapeBodies } from "../types/phaser-aliases";
+import { BeaterName } from "../types/beater-name";
+import { BrickName } from "../types/brick-name";
+import { eventListener } from "../events/event-listener";
+import { getRandomBrickName, randomRange } from "../utils/utils";
+
+export class GameScene extends Phaser.Scene {
+  beaters: Beater[] = [];
+  shapes!: ShapeBodies;
+  normalisedMousePos: { x: number; y: number } = { x: 0, y: 0 };
+
+  constructor() {
+    super({ key: "GameScene" });
+  }
+
+  create() {
+    // Create group for shapes, set it to collide with all beaters
+    this.shapes = this.physics.add.staticGroup();
+    this.physics.add.collider(this.beaters, this.shapes, this.beaterHitBrick);
+
+    this.input.mouse?.disableContextMenu();
+
+    this.input.on("pointerdown", (e: MouseEvent) => {
+      // Left click
+      if (e.button === 0) {
+        this.addBeater();
+        // Right click
+      } else if (e.button === 2) {
+        this.addBrick();
+      }
+    });
+  }
+
+  private addBeater() {
+    // Random image for beater
+    const randomBallFrame = Math.floor(Math.random() * 6);
+    const beater = this.physics.add
+      .image(this.input.x, this.input.y, "balls", randomBallFrame)
+      .setCollideWorldBounds(true)
+      .setBounce(1);
+
+    // Random direction, same speed
+    const direction = new Phaser.Math.Vector2(
+      randomRange(-1, 1),
+      randomRange(-1, 1)
+    );
+    const speed = 100;
+    const velocity = direction.normalize().scale(speed);
+    beater.setVelocity(velocity.x, velocity.y);
+
+    // Beaters collide with each other
+    this.physics.add.collider(beater, this.beaters, this.beaterHitBeater);
+
+    beater.setData("name", BeaterName.NORMAL);
+
+    this.beaters.push(beater);
+  }
+
+  private addBrick() {
+    const randomBrickName = getRandomBrickName();
+    const rect = this.physics.add.staticSprite(
+      this.input.x,
+      this.input.y,
+      "bricks",
+      randomBrickName
+    );
+
+    rect.setData("name", randomBrickName);
+
+    this.shapes.add(rect);
+  }
+
+  private readonly beaterHitBrick = (
+    beater:
+      | Phaser.Types.Physics.Arcade.GameObjectWithBody
+      | Phaser.Tilemaps.Tile,
+    shape: Phaser.Types.Physics.Arcade.GameObjectWithBody | Phaser.Tilemaps.Tile
+  ) => {
+    if (
+      beater instanceof Phaser.Tilemaps.Tile ||
+      shape instanceof Phaser.Tilemaps.Tile
+    ) {
+      return;
+    }
+
+    const beaterName = beater.getData("name") as BeaterName;
+    const brickName = shape.getData("name") as BrickName;
+    const speed = beater.body.velocity.length();
+    const position = normaliseCanvasPosition(
+      beater.body.position.x,
+      beater.body.position.y
+    );
+
+    eventListener.fire("beater-brick-collision", {
+      beaterName,
+      brickName,
+      speed,
+      position,
+    });
+  };
+
+  private readonly beaterHitBeater = (
+    beaterA:
+      | Phaser.Types.Physics.Arcade.GameObjectWithBody
+      | Phaser.Tilemaps.Tile,
+    beaterB:
+      | Phaser.Types.Physics.Arcade.GameObjectWithBody
+      | Phaser.Tilemaps.Tile
+  ) => {
+    if (
+      beaterA instanceof Phaser.Tilemaps.Tile ||
+      beaterB instanceof Phaser.Tilemaps.Tile
+    ) {
+      return;
+    }
+
+    const beaterAName = beaterA.getData("name") as BeaterName;
+    const beaterBName = beaterB.getData("name") as BeaterName;
+    const speed =
+      beaterA.body?.velocity.length() + beaterB.body.velocity.length();
+    const position = normaliseCanvasPosition(
+      beaterA.body.position.x,
+      beaterA.body.position.y
+    );
+
+    eventListener.fire("beater-beater-collision", {
+      beaterAName,
+      beaterBName,
+      speed,
+      position,
+    });
+  };
+}
+
+function normaliseCanvasPosition(
+  x: number,
+  y: number
+): { x: number; y: number } {
+  // Should be given event.client values, assumes canvas is size of window
+  return {
+    x: (x / window.innerWidth) * 2 - 1,
+    y: -(y / window.innerHeight) * 2 + 1,
+  };
+}

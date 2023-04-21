@@ -1,19 +1,10 @@
-import * as THREE from "three";
-import GUI from "lil-gui";
+import { brickNames } from "../types/brick-name";
 
-export function addGui(object: THREE.Object3D, name = "") {
-  const gui = new GUI();
+export function randomRange(min: number, max: number) {
+  return Math.random() * (max - min + 1) + min;
+}
 
-  gui.add(object.position, "x").name(name + " pos x");
-  gui.add(object.position, "y").name(name + " pos y");
-  gui.add(object.position, "z").name(name + " pos z");
-
-  gui
-    .add(object.rotation, "y")
-    .name(name + " rot y")
-    .min(0)
-    .max(Math.PI * 2)
-    .step(0.001);
-
-  gui.add(object.scale, "x").name(name + " scale x");
+export function getRandomBrickName() {
+  const rnd = Math.floor(Math.random() * brickNames.length);
+  return brickNames[rnd];
 }

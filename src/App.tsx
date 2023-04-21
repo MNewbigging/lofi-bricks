@@ -11,13 +11,10 @@ interface AppProps {
 }
 
 export const App: React.FC<AppProps> = observer(({ appState }) => {
-  console.log("app render", appState);
-
   return (
     <div className="app">
-      <canvas id="canvas"></canvas>
-
-      {appState.gameLoader.loading && <LoadingScreen />}
+      {/* The canvas is injected here */}
+      <div id="game-mount"></div>
     </div>
   );
 });

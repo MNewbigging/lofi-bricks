@@ -1,26 +1,50 @@
-import { GameLoader } from "./loaders/game-loader";
-import { GameState } from "./game-state";
+import Phaser from "phaser";
+
+import { BootScene } from "./scenes/boot-scene";
+import { GameScene } from "./scenes/game-scene";
+import { eventListener } from "./events/event-listener";
 
 export class AppState {
-  readonly gameLoader = new GameLoader();
-  gameState?: GameState;
+  private game?: Phaser.Game;
+  private gameScene = new GameScene();
 
   constructor() {
-    // Give canvas time to mount
-    setTimeout(() => this.loadGame(), 10);
+    // Allow time for UI to mount
+    setTimeout(() => this.setupGame(), 100);
   }
 
-  private async loadGame() {
-    this.gameLoader.load(this.startGame);
+  startGame() {
+    eventListener.fire("game-start", null);
   }
 
-  private startGame = () => {
-    const canvas = document.getElementById("canvas") as HTMLCanvasElement;
-    if (!canvas) {
-      console.error("could not find game canvas");
-      return;
-    }
+  private setupGame() {
+    eventListener.on("game-loaded", this.onGameLoaded);
 
-    this.gameState = new GameState(canvas, this.gameLoader);
+    const config: Phaser.Types.Core.GameConfig = {
+      type: Phaser.AUTO,
+      scale: {
+        parent: "game-mount",
+        mode: Phaser.Scale.RESIZE,
+      },
+      transparent: true,
+      physics: {
+        default: "arcade",
+        arcade: {
+          gravity: { y: 0 },
+        },
+      },
+      fps: {
+        min: 30,
+        target: 60,
+        smoothStep: true,
+      },
+      scene: [new BootScene(), this.gameScene],
+    };
+
+    this.game = new Phaser.Game(config);
+  }
+
+  private onGameLoaded = () => {
+    this.startGame();
   };
 }
