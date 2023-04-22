@@ -9,7 +9,6 @@ import { getRandomBrickName, randomRange } from "../utils/utils";
 export class GameScene extends Phaser.Scene {
   beaters: Beater[] = [];
   shapes!: ShapeBodies;
-  normalisedMousePos: { x: number; y: number } = { x: 0, y: 0 };
 
   constructor() {
     super({ key: "GameScene" });
@@ -28,7 +27,7 @@ export class GameScene extends Phaser.Scene {
         this.addBeater();
         // Right click
       } else if (e.button === 2) {
-        this.addBrick();
+        this.addBrick(this.input.x, this.input.y);
       }
     });
   }
@@ -58,14 +57,9 @@ export class GameScene extends Phaser.Scene {
     this.beaters.push(beater);
   }
 
-  private addBrick() {
+  private addBrick(x: number, y: number) {
     const randomBrickName = getRandomBrickName();
-    const rect = this.physics.add.staticSprite(
-      this.input.x,
-      this.input.y,
-      "bricks",
-      randomBrickName
-    );
+    const rect = this.physics.add.staticSprite(x, y, "bricks", randomBrickName);
 
     rect.setData("name", randomBrickName);
 

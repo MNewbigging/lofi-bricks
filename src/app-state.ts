@@ -1,12 +1,18 @@
 import Phaser from "phaser";
+import { observable } from "mobx";
 
+import { AudioManager } from "./audio-manager";
 import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
 import { eventListener } from "./events/event-listener";
 
 export class AppState {
+  @observable loading = true;
+  @observable gameStarted = false;
+
   private game?: Phaser.Game;
   private gameScene = new GameScene();
+  private audioManager = new AudioManager();
 
   constructor() {
     // Allow time for UI to mount

@@ -4,7 +4,6 @@ import React from "react";
 import { observer } from "mobx-react-lite";
 
 import { AppState } from "./app-state";
-import { LoadingScreen } from "./loading-screen/loading-screen";
 
 interface AppProps {
   appState: AppState;
