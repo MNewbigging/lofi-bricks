@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { observable } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 
 import { AudioManager } from "./audio-manager";
 import { BootScene } from "./scenes/boot-scene";
@@ -15,13 +15,16 @@ export class AppState {
   private audioManager = new AudioManager();
 
   constructor() {
+    makeAutoObservable(this);
+
     // Allow time for UI to mount
     setTimeout(() => this.setupGame(), 100);
   }
 
-  startGame() {
+  @action startGame = () => {
+    this.gameStarted = true;
     eventListener.fire("game-start", null);
-  }
+  };
 
   private setupGame() {
     eventListener.on("game-loaded", this.onGameLoaded);
@@ -50,7 +53,8 @@ export class AppState {
     this.game = new Phaser.Game(config);
   }
 
-  private onGameLoaded = () => {
-    this.startGame();
+  @action private onGameLoaded = () => {
+    this.loading = false;
+    console.log("loaded");
   };
 }
