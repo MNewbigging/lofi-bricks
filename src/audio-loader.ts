@@ -33,7 +33,13 @@ export class AudioLoader {
 
   load() {
     this.audioFileMap.forEach((fileName, clipName) => {
-      const url = new URL(fileName, import.meta.url).href;
+      // Hack for published build
+      let actualFileName = fileName;
+      if (!window.location.href.includes("localhost")) {
+        actualFileName = "/brick-beats" + actualFileName;
+      }
+
+      const url = new URL(actualFileName, import.meta.url).href;
       const player: Tone.Player = new Tone.Player(url, () =>
         this.onLoadPlayer(clipName, player)
       ).toDestination();
