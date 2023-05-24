@@ -1,3 +1,4 @@
+import * as Tone from "tone";
 import Phaser from "phaser";
 import { action, makeAutoObservable, observable } from "mobx";
 
@@ -24,7 +25,10 @@ export class AppState {
     setTimeout(() => this.setupGame(), 100);
   }
 
-  @action startGame = () => {
+  @action startGame = async () => {
+    // Must start tone from a user interaction
+    await Tone.start();
+
     this.gameStarted = true;
     eventListener.fire("game-start", null);
   };

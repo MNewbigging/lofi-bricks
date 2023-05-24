@@ -1,5 +1,7 @@
 import * as Tone from "tone";
 
+import { BeaterName } from "./types/beater-name";
+import { BrickName } from "./types/brick-name";
 import { eventListener } from "./events/event-listener";
 
 export class AudioLoader {
@@ -7,7 +9,22 @@ export class AudioLoader {
   playerMap = new Map<string, Tone.Player>();
 
   private audioFileMap = new Map<string, string>([
-    ["drum-loop-1", "/audio/Drum_Loops/Drum_Loop_1_120bpm.wav"],
+    [
+      BeaterName.RED + BrickName.BLUE_DARK,
+      "/audio/Drum_Loops/Drum_Loop_1_120bpm.wav",
+    ],
+    [
+      BeaterName.RED + BrickName.GREEN_DARK,
+      "/audio/Drum_Loops/Drum_Loop_2_120bpm.wav",
+    ],
+    [
+      BeaterName.RED + BrickName.RED_DARK,
+      "/audio/Drum_Loops/Drum_Loop_3_120bpm.wav",
+    ],
+    [
+      BeaterName.RED + BrickName.ORANGE_DARK,
+      "/audio/Drum_Loops/Drum_Loop_4_120bpm.wav",
+    ],
   ]);
 
   getPlayer(name: string) {
