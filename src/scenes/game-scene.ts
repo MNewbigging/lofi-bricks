@@ -1,7 +1,7 @@
 import Phaser from "phaser";
 
 import { Beater, ShapeBodies } from "../types/phaser-aliases";
-import { BeaterName } from "../types/beater-name";
+import { BeaterName, beaterNames } from "../types/beater-name";
 import { BrickName } from "../types/brick-name";
 import { eventListener } from "../events/event-listener";
 import { getRandomBrickName, randomRange } from "../utils/utils";
@@ -34,7 +34,7 @@ export class GameScene extends Phaser.Scene {
 
   private addBeater() {
     // Random image for beater
-    const randomBallFrame = Math.floor(Math.random() * 6);
+    const randomBallFrame = Math.floor(Math.random() * beaterNames.length);
     const beater = this.physics.add
       .image(this.input.x, this.input.y, "balls", randomBallFrame)
       .setCollideWorldBounds(true)
@@ -52,7 +52,7 @@ export class GameScene extends Phaser.Scene {
     // Beaters collide with each other
     this.physics.add.collider(beater, this.beaters, this.beaterHitBeater);
 
-    beater.setData("name", BeaterName.NORMAL);
+    beater.setData("name", beaterNames[randomBallFrame]);
 
     this.beaters.push(beater);
   }

@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import { action, makeAutoObservable, observable } from "mobx";
 
+import { AudioLoader } from "./audio-loader";
 import { AudioManager } from "./audio-manager";
 import { BootScene } from "./scenes/boot-scene";
 import { GameScene } from "./scenes/game-scene";
@@ -11,8 +12,10 @@ export class AppState {
   @observable gameStarted = false;
 
   private game?: Phaser.Game;
+  private gameLoaded = false;
   private gameScene = new GameScene();
-  private audioManager = new AudioManager();
+  private audioLoader = new AudioLoader();
+  private audioManager = new AudioManager(this.audioLoader);
 
   constructor() {
     makeAutoObservable(this);
@@ -28,7 +31,12 @@ export class AppState {
 
   private setupGame() {
     eventListener.on("game-loaded", this.onGameLoaded);
+    eventListener.on("audio-loaded", this.onAudioLoaded);
 
+    // Load audio
+    this.audioLoader.load();
+
+    // Load game assets
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
       scale: {
@@ -54,7 +62,19 @@ export class AppState {
   }
 
   @action private onGameLoaded = () => {
-    this.loading = false;
-    console.log("loaded");
+    this.gameLoaded = true;
+
+    // Check if audio is also loaded
+    if (this.audioLoader.loaded) {
+      // Done loading
+      this.loading = false;
+    }
+  };
+
+  @action private onAudioLoaded = () => {
+    // Check if game is also loaded
+    if (this.gameLoaded) {
+      this.loading = false;
+    }
   };
 }

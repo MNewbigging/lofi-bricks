@@ -17,6 +17,7 @@ export interface BeaterBeaterCollision {
 
 export interface EventMap {
   "game-loaded": null;
+  "audio-loaded": null;
   "game-start": null;
   "beater-brick-collision": BeaterBrickCollision;
   "beater-beater-collision": BeaterBeaterCollision;
