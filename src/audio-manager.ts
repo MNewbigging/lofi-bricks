@@ -27,8 +27,6 @@ export class AudioManager {
     // Set the starting tempo
     Tone.Transport.bpm.value = 120;
 
-    Tone.Transport.timeSignature = 2;
-
     // Start the scheduler
     Tone.Transport.start();
   };
