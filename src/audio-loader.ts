@@ -25,6 +25,22 @@ export class AudioLoader {
       BeaterName.RED + BrickName.ORANGE_DARK,
       "/audio/Drum_Loops/Drum_Loop_4_120bpm.wav",
     ],
+    [
+      BeaterName.BLUE + BrickName.BLUE_DARK,
+      "/audio/Synth_Loops/Synth_Loop_1_120bpm.wav",
+    ],
+    [
+      BeaterName.BLUE + BrickName.GREEN_DARK,
+      "/audio/Synth_Loops/Synth_Loop_2_120bpm.wav",
+    ],
+    [
+      BeaterName.BLUE + BrickName.RED_DARK,
+      "/audio/Synth_Loops/Synth_Loop_3_120bpm.wav",
+    ],
+    [
+      BeaterName.BLUE + BrickName.ORANGE_DARK,
+      "/audio/Synth_Loops/Synth_Loop_4_120bpm.wav",
+    ],
   ]);
 
   getPlayer(name: string) {

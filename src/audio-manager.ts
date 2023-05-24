@@ -36,7 +36,6 @@ export class AudioManager {
   private onBeaterBrickCollision = (event: BeaterBrickCollision) => {
     // Each beater+brick name results in a single layer
     const joinedName = event.beaterName.concat(event.brickName);
-    console.log("joined name", joinedName);
 
     // If this is already playing
     const callbackId = this.playingMap.get(joinedName);
