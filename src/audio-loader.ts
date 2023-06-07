@@ -9,38 +9,10 @@ export class AudioLoader {
   playerMap = new Map<string, Tone.Player>();
 
   private audioFileMap = new Map<string, string>([
-    [
-      BeaterName.RED + BrickName.BLUE_DARK,
-      "/audio/Drum_Loops/Drum_Loop_1_120bpm.wav",
-    ],
-    [
-      BeaterName.RED + BrickName.GREEN_DARK,
-      "/audio/Drum_Loops/Drum_Loop_2_120bpm.wav",
-    ],
-    [
-      BeaterName.RED + BrickName.RED_DARK,
-      "/audio/Drum_Loops/Drum_Loop_3_120bpm.wav",
-    ],
-    [
-      BeaterName.RED + BrickName.ORANGE_DARK,
-      "/audio/Drum_Loops/Drum_Loop_4_120bpm.wav",
-    ],
-    [
-      BeaterName.BLUE + BrickName.BLUE_DARK,
-      "/audio/Synth_Loops/Synth_Loop_1_120bpm.wav",
-    ],
-    [
-      BeaterName.BLUE + BrickName.GREEN_DARK,
-      "/audio/Synth_Loops/Synth_Loop_2_120bpm.wav",
-    ],
-    [
-      BeaterName.BLUE + BrickName.RED_DARK,
-      "/audio/Synth_Loops/Synth_Loop_3_120bpm.wav",
-    ],
-    [
-      BeaterName.BLUE + BrickName.ORANGE_DARK,
-      "/audio/Synth_Loops/Synth_Loop_4_120bpm.wav",
-    ],
+    [BeaterName.RED + BrickName.BLUE_DARK, "/audio/baseSnareLayer.wav"],
+    [BeaterName.RED + BrickName.GREEN_DARK, "/audio/hihatLayer.wav"],
+    [BeaterName.RED + BrickName.RED_DARK, "/audio/pianoLayer.wav"],
+    [BeaterName.RED + BrickName.ORANGE_DARK, "/audio/rhodesLayer.wav"],
   ]);
 
   getPlayer(name: string) {

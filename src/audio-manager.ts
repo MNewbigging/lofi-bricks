@@ -25,7 +25,7 @@ export class AudioManager {
 
   private onGameStart = () => {
     // Set the starting tempo
-    Tone.Transport.bpm.value = 120;
+    Tone.Transport.bpm.value = 85;
 
     // Start the scheduler
     Tone.Transport.start();
@@ -51,6 +51,7 @@ export class AudioManager {
         Tone.Transport.clear(callbackId);
         // Remove from map
         this.playingMap.delete(joinedName);
+        console.log("stopped", joinedName);
       }, "@1m");
 
       return;
@@ -66,8 +67,9 @@ export class AudioManager {
     const id = Tone.Transport.scheduleRepeat(
       (time) => {
         player.start(time);
+        console.log("started", joinedName);
       },
-      "1m",
+      "8m",
       "@1m"
     );
 
