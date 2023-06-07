@@ -24,7 +24,7 @@ export class AudioLoader {
       // Hack for published build
       let actualFileName = fileName;
       if (!window.location.href.includes("localhost")) {
-        actualFileName = "/brick-beats" + actualFileName;
+        actualFileName = "/lofi-bricks" + actualFileName;
       }
 
       const url = new URL(actualFileName, import.meta.url).href;
